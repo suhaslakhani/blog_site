@@ -2,8 +2,7 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
+
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -23,11 +22,4 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-
 setupCounter(document.querySelector('#counter'))
-
-export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
-})
