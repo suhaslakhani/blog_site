@@ -8,10 +8,20 @@
   color: rgba(255, 255, 255, 0.87);
   /* background-color: #242424; */
 
-  font-synthesis: none;
+  font-synthesis: none; 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.hover\:scale-102 {
+  &:hover {
+      @media (hover: hover) {
+          --tw-scale-x: 105%;
+          --tw-scale-y: 105%;
+          --tw-scale-z: 105%;
+          scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+  }
 }
 
 
