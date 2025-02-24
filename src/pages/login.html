@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="src\pages\src\pages\login.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <title>Wisper</title>
+  </head>
+  <body class="">
+    <div class="flex">
+      <div class="mt-[210px] w-[50%] rounded-r-xl">
+        <h6 class="01 text-center text-2xl mb-8">create an account</h6>
+        <form class="text-center" action="/myForm"  id="form" name="myForm" onsubmit="return loginValidation()" method="post">
+          <div class="03">
+            <label for="formEmail">@</label>
+            <input
+              class="mt-2 border p-2 rounded-md hover:border-blue-400 hover:border-2"
+              type="email"
+              name="Email"
+              id="formEmail"
+              placeholder="Email"
+            />
+            <p  id="emailValidation">em</p>
+          </div>
+          <div class="04 mt-2`">
+            <label for="formPassword"><i class="ri-lock-fill"></i></label>
+            <input
+              class="border rounded-md mt-2 p-2 hover:border-blue-400 hover:border-2"
+              type="password"
+              name="password"
+              id="formPassword"
+              placeholder="password"
+            />
+          </div>
+          <div>
+            <button
+              class="mt-6 px-4 py-2 border rounded-md bg-black text-white hover:bg-blue-400"
+              type="submit"
+              name="submit"
+              id="submitBtn"
+            >
+            login
+              
+            </button>
+          </div>
+
+          <p class="mt-4">
+           Create an Account |
+            <a href="/src/pages/signup.html" class="text-blue-500">Signup</a>
+          </p>
+        </form>
+      </div>
+
+      <div>
+        <ul class="bg-black">
+          <li>
+            <img
+              class="object-cover opacity-30 h-screen w-screen"
+              src="https://images.unsplash.com/photo-1736332654737-1224ed263915?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="" src="LoginValidation.js" defer></script>
+  </body>
+</html>
