@@ -1,5 +1,4 @@
 
-console.log("hello");
 document.addEventListener('submit',loginValidation);
 
 function loginValidation() {
