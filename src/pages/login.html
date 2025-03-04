@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="src\pages\src\pages\login.css" rel="stylesheet" />
+    <link href="../style.css" rel="stylesheet" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -12,32 +12,39 @@
 
     <title>Wisper</title>
   </head>
-  <body class="">
+  <body class="bg-white">
     <div class="flex">
       <div class="mt-[210px] w-[50%] rounded-r-xl">
-        <h6 class="01 text-center text-2xl mb-8">create an account</h6>
-        <form class="text-center" action="/myForm"  id="form" name="myForm" onsubmit="return loginValidation()" method="post">
+        <h6 class="01 text-center text-2xl mb-8 text-black">create an account</h6>
+        <form class="text-center" action="/myForm"  id="loginForm" name="myForm" onsubmit="return loginValidation()" method="post">
           <div class="03">
             <label for="formEmail">@</label>
             <input
-              class="mt-2 border p-2 rounded-md hover:border-blue-400 hover:border-2"
+              class="mt-2 border p-2 bg-white text-black rounded-md hover:border-blue-400 hover:border-2 selection:hover:border-hidden selection:border-none"
               type="email"
               name="Email"
-              id="formEmail"
+              id="email"
               placeholder="Email"
             />
-            <p  id="emailValidation">em</p>
+            <!-- <p  id="emailValidation">em</p> -->
           </div>
+
+          <div class="error text-red-500" id="emailError"></div>
+
+
           <div class="04 mt-2`">
             <label for="formPassword"><i class="ri-lock-fill"></i></label>
             <input
-              class="border rounded-md mt-2 p-2 hover:border-blue-400 hover:border-2"
+              class="border rounded-md mt-2 p-2 text-black bg-white hover:border-blue-400 hover:border-2"
               type="password"
               name="password"
-              id="formPassword"
+              id="password"
               placeholder="password"
             />
           </div>
+
+          <div class="error text-red-500" id="passwordError"></div>
+
           <div>
             <button
               class="mt-6 px-4 py-2 border rounded-md bg-black text-white hover:bg-blue-400"
@@ -50,7 +57,7 @@
             </button>
           </div>
 
-          <p class="mt-4">
+          <p class="mt-4 text-black">
            Create an Account |
             <a href="/src/pages/signup.html" class="text-blue-500">Signup</a>
           </p>
