@@ -16,24 +16,12 @@
     <div class="flex">
       <div class="mt-[210px] w-[50%] rounded-r-xl">
         <h6 class="01 text-center text-2xl mb-8">create an account</h6>
-        <form class="text-center" action="#" id="signupForm" name="MyForm" onsubmit="return validateForm()">
-          <div class="02">
-            <label for="formFname"><i class="ri-user-fill"></i></label>
-
-            <input
-              class="mt-2 border p-2 rounded-md hover:border-blue-400 hover:border-2"
-              type="text"
-              name="name"
-              id="username"
-              name="Uname"
-              placeholder="username"
-            />
-            <!-- <span class="formError text-red-500"><b>*this a error</b></span> -->
-          </div>
-          <div class="error text-red-500" id="usernameError"></div>
+        <form class="text-center" onsubmit="signup(event)" id="signupForm" name="MyForm" ">
+          
           <div class="03">
             <label for="formEmail">@</label>
             <input
+              value=""
               class="mt-2 border p-2 rounded-md hover:border-blue-400 hover:border-2"
               type="email"
               name="email"
@@ -45,6 +33,7 @@
           <div class="04 mt-2`">
             <label for="formPassword"><i class="ri-lock-fill"></i></label>
             <input
+              value=""
               class="border rounded-md mt-2 p-2 hover:border-blue-400 hover:border-2"
               type="password"
               name="password"
@@ -56,10 +45,11 @@
           <div class="05 mt-2">
             <label for="formConfirmPassword "><i class="ri-lock-fill"></i></label>
             <input
+              value=""
               class="border rounded-md mt-2 p-2 hover:border-blue-400 hover:border-2"
               type="password"
-              name="confirm-password"
-              id="confirmPassword"
+              name="cpassword"
+              id="cpassword"
               placeholder="Confirm password"
             />
           </div>
@@ -75,7 +65,7 @@
           </div>
           <p class="mt-4">
             Already have an Account |
-            <a href="/src/pages/login.html" class="text-blue-500">Login</a>
+            <a href="./login.html" class="text-blue-500">Login</a>
           </p>
         </form>
       </div>
@@ -93,6 +83,28 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="SignupValidation.js" defer></script>
+    <!-- <script type="text/javascript" src="SignupValidation.js" defer></script> -->
+    <!-- <script type="module" src="/src/main.js"></script> -->
+    <script>
+      async function signup(event){
+       event.preventDefault();
+       const emailElement = document.getElementById("email");
+       const passwordElement = document.getElementById("password");  
+       const cpasswordElement = document.getElementById("cpassword");
+       const signupRequest = {
+         email: emailElement.value,
+         password: passwordElement.value,
+         cpassword: cpasswordElement.value
+       }
+          const response = await fetch("http://localhost:2000/signup",{
+        method: "post",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(signupRequest)
+       })
+       const result = await response.text()
+       window.alert(result);
+       window.location.reload();
+      }
+     </script>
   </body>
 </html>

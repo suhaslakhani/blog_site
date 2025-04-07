@@ -16,7 +16,7 @@
     <div class="flex">
       <div class="mt-[210px] w-[50%] rounded-r-xl">
         <h6 class="01 text-center text-2xl mb-8 text-black">create an account</h6>
-        <form class="text-center" action="/myForm"  id="loginForm" name="myForm" onsubmit="return loginValidation()" method="post">
+        <form class="text-center" action="/login" onsubmit="login(event)" id="loginForm" name="myForm" method="post">
           <div class="03">
             <label for="formEmail">@</label>
             <input
@@ -58,7 +58,7 @@
 
           <p class="mt-4 text-black">
            Create an Account |
-            <a href="/src/pages/signup.html" class="text-blue-500">Signup</a>
+            <a href="./signup.html" class="text-blue-500">Signup</a>
           </p>
         </form>
       </div>
@@ -76,8 +76,29 @@
       </div>
     </div>
 
-    <script type="" src="LoginValidation.js" defer></script>
-    <script type="module" src="/src/main.js"></script>
+    <!-- <script type="" src="LoginValidation.js" defer></script>
+    <script type="module" src="/src/main.js"></script> -->
+    <script>
+      async function login(event){
+       event.preventDefault();
+       const emailElement = document.getElementById("email");
+       const passwordElement = document.getElementById("password");  
+      //  const cpasswordElement = document.getElementById("cpassword");
+       const signupRequest = {
+         email: emailElement.value,
+         password: passwordElement.value,
+        
+       }
+          const response = await fetch("http://localhost:2000/login",{
+        method: "post",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(signupRequest)
+       })
+       const result = await response.text()
+       window.alert(result);
+       window.location.reload();
+      }
+     </script>
 
   </body>
 </html>
